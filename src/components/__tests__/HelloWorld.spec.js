@@ -4,7 +4,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
 import { nextTick } from 'vue';
 
 describe('HelloWorld.vue', () => {
-  it('should have a message that is a string', async () => {
+  it('should have a Hello World message when clicking on the button', async () => {
     const wrapper = mount(HelloWorld);
     
     // Simule un clic sur le bouton
