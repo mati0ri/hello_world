@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  # Service pour la production
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+
+  # Service pour le développement avec Nodemon
+  webapp-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: dev-stage  # Utilise la première étape pour le dev
+    volumes:
+      - .:/app  # Monte les fichiers locaux dans le conteneur pour que Nodemon puisse les surveiller
+      - /app/node_modules  # Évite que node_modules soit écrasé
+    ports:
+      - "5173:5173"  # Mapper le port 5173 de Docker au port 5173 de la machine locale
+    environment:
+      NODE_ENV: development
+    command: nodemon --exec "yarn run dev -- --host" -L  # Exécute Vue.js via nodemon

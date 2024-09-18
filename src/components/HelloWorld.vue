@@ -2,7 +2,7 @@
     <header>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
       
-      <button @click="showMessage" class="crazy-button">Afficher Message</button>
+      <button @click="showMessage" class="crazy-button">print</button>
       <h1 v-if="show">Hello World</h1>
     </header>
   </template>
